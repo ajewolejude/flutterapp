@@ -13,7 +13,7 @@ void main(){
           color: Colors.lightBlueAccent,
           child: Center(
               child:Text(
-                "Hello Flutters",
+                "Hello Flutter",
                 textDirection:TextDirection.ltr,
                 style: TextStyle(color: Colors.white, fontSize: 40.0 ),
 
