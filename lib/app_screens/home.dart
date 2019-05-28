@@ -71,7 +71,7 @@ class Home extends StatelessWidget{
                   ],
                 ),
 
-                FlightImageAsset();
+                FlightImageAsset()
               ],)
 
 
