@@ -10,44 +10,33 @@ void main(){
     debugShowCheckedModeBanner: false,
     title: "ExploringUI widgets",
     home: Scaffold(
-      appBar: AppBar(title: Text("Basic List View"),),
+      appBar: AppBar(title: Text("Long List"),),
       body: getListView(),
     )
 
   ));
 }
 
+List<String> getListElements(){
+
+  var items = List<String>.generate(1000, (counter) => "item $counter");
+
+  return items;
+}
 
 Widget getListView(){
+  var listItems = getListElements();
 
-  var listView = ListView(
-    children: <Widget>[
-      ListTile(
-        leading: Icon(Icons.landscape),
-        title: Text("Landscape"),
-        subtitle:Text( "Beautiful View"),
-        trailing: Icon(Icons.wb_sunny),
-        onTap: (){
-          debugPrint("Landscape tapped");
-        },
-        
-      ),
+  var listView = ListView.builder(
+      itemBuilder: (context, index){
 
-      ListTile(
-        leading: Icon(Icons.laptop_chromebook),
-        title: Text("Windows"),
+        return ListTile(
+          title: Text(listItems[index]),
 
 
-      ),
 
-      ListTile(
-        leading: Icon(Icons.phone),
-        title: Text("Phone"),
-
-
-      )
-    ],
-
+        );
+      }
   );
-  return  listView;
+  return listView;
 }
