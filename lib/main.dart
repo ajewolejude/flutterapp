@@ -12,6 +12,14 @@ void main(){
     home: Scaffold(
       appBar: AppBar(title: Text("Long List"),),
       body: getListView(),
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            debugPrint("FAB Clicked");
+          },
+              tooltip: 'Add One More Item',
+              child: Icon(Icons.add),
+      
+      ),
     )
 
   ));
@@ -34,7 +42,7 @@ Widget getListView(){
           leading: Icon(Icons.arrow_right),
           title: Text(listItems[index]),
           onTap: (){
-            debugPrint('${listItems[index]} was tapped');
+            showSnackBar(context, listItems[index]);
           },
 
 
@@ -43,4 +51,19 @@ Widget getListView(){
       }
   );
   return listView;
+}
+
+void showSnackBar(BuildContext context, String item){
+  
+  var snackBar = SnackBar(
+    
+    content: Text("You just tapped $item"),
+    action: SnackBarAction(
+        label: 'UNDO',
+        onPressed: (){
+          debugPrint("Performing dummy UNDO Operation");
+        }),
+  );
+  
+  Scaffold.of(context).showSnackBar(snackBar);
 }
