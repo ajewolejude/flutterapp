@@ -31,7 +31,11 @@ Widget getListView(){
       itemBuilder: (context, index){
 
         return ListTile(
+          leading: Icon(Icons.arrow_right),
           title: Text(listItems[index]),
+          onTap: (){
+            debugPrint('${listItems[index]} was tapped');
+          },
 
 
 
